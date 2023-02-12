@@ -18,14 +18,11 @@
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('penduduk')" :active="request()->routeIs('penduduk')">
-                        {{ __('Penduduk') }}
+                        {{ __('data penduduk') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('data_umur')" :active="request()->routeIs('data_umur')">
-                        {{ __('Data Umur') }}
-                    </x-nav-link>
-                </div>
+
+
             </div>
 
             <!-- Settings Dropdown -->

@@ -27,13 +27,15 @@ Route::get('', fn () => view('welcome'));
 Route::get('/contac', fn () => view('contac'));
 Route::get('/about', fn () => view('about'));
 Route::get('/galery', fn () => view('galery'));
+Route::get('/sidebar', fn () => view('penduduk.index2'))->middleware(['auth'])->name('sidebar');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
 Route::get('/penduduk/umur', [UmurControler::class, 'index'])->middleware(['auth'])->name('data_umur');
+Route::get('/penduduk/rekap', [PendudukController::class, 'dusun'])->middleware(['auth'])->name('umur_rekap');
 
 Route::get('/penduduk', [PendudukController::class, 'index'])->middleware(['auth'])->name('penduduk');
-// Route::get('/tes', [PendudukController::class, 'jumlakan'])->middleware(['auth'])->name('jumlah');
+// Route::get('/penduduk/{id}/lihat', [PendudukController::class, 'lihat'])->middleware(['auth'])->name('lihat');
 
 Route::get('/create', [PendudukController::class, 'create'])->middleware(['auth'])->name('create');
 Route::post('/penduduk/store', [PendudukController::class, 'store'])->middleware(['auth'])->name('simpandata');

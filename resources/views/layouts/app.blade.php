@@ -13,6 +13,8 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body class="font-sans antialiased">
@@ -21,17 +23,26 @@
 
 
         <!-- Page Heading -->
-        <header class="bg-white shadow">
+        @if (isset($header))
+            <header class="bg-white dark:text-white  shadow">
+                <div class="max-w-7xl mx-auto py-2 px-4 sm:px-6 lg:px-8">
+                    {{ $header }}
+                </div>
+            </header>
+        @endif
+        {{-- <header class="bg-white shadow">
             <div class="max-w-7xl mx-auto py-2 px-4 sm:px-6 lg:px-8">
                 {{ $header ?? '' }}
             </div>
-        </header>
+        </header> --}}
+
 
         <!-- Page Content -->
         <main>
             {{ $slot }}
         </main>
     </div>
+    @stack('script')
 </body>
 
 </html>

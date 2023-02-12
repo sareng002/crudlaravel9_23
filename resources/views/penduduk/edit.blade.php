@@ -1,37 +1,41 @@
-<x-app-layout>
+<x-mysidebar>
 
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Penduduk') }}
+    <x-slot name="kopsidebar">
+        <h2 class="font-semibold text-md">
+            {{ __('Tambah Data') }}
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-2">
         <div class="max-w-2xl h-full mx-auto sm:px-6 lg:px-8">
             <div class="bg-slate-600 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200 uppercase text-xl ">
+                <div class="p-4 bg-white border-b border-gray-200 uppercase text-xl ">
                     Edit Data Penduduk Data Penduduk
                 </div>
                 {{-- action="/warga/{{ $wargamodel->id }}" method="POST" --}}
                 <form action="/penduduk/{{ $tb_penduduk->id }}" method="Post">
                     @method('PUT')
                     @csrf
-                    <div class="px-5 py-2">
+                    <div class="px-5 py-4 ">
+                        <label for="nik" class="text-white py-8">nik</label>
                         <input type="text" id="nik" name="nik" value="{{ old('nik', $tb_penduduk->nik) }}"
                             placeholder="Masukkan Nomor nik...."
-                            class=" mt-5 rounded-lg px-2 py-2 outline-none bg-red-200 focus:bg-yellow-50 text-sm w-full">
+                            class=" rounded-lg px-2 py-2 outline-none bg-red-200 focus:bg-yellow-50 text-sm w-full">
                     </div>
-                    <div class="px-5 py-2">
+                    <div class="px-5 ">
+                        <label for="nik" class="text-white">kk</label>
                         <input type="text" id="kk" name="kk" value="{{ $tb_penduduk->kk }}"
                             placeholder="Masukkan Nomor kk...."
                             class="rounded-lg px-2 py-2 outline-none bg-red-200 focus:bg-yellow-50 text-sm w-full">
                     </div>
                     <div class="px-5 py-2">
+                        <label for="nik" class="text-white">nama</label>
                         <input type="text" id="nama" name="nama" value="{{ $tb_penduduk->nama }}"
                             placeholder="Masukkan Nama...."
                             class="rounded-lg px-2 py-2 outline-none bg-red-200 focus:bg-yellow-50 text-sm w-full">
                     </div>
                     <div class="px-5 py-2">
+                        <label for="nik" class="text-white">jenis Kelamin</label>
                         <select name="kelamin" id="kelamin" class="bg-red-200 rounded-lg w-full text-slate-500">
                             <option class="bg-white border-spacing-0 rounded-lg w-full" value="">Pilih Jenis
                                 Kelamin
@@ -45,18 +49,25 @@
                         </select>
                     </div>
                     <div class="px-5 py-2">
+                        <label for="nik" class="text-white">Tempat Lahir</label>
                         <input type="text" id="tempat_lahir" name="tempat_lahir"
-                            value="{{ $tb_penduduk->tempat_lahir }}"
+                            value="{{ $tb_penduduk->tempat_lahir}}"
                             placeholder="Masukkan
                             tempat Lahir...."
                             class="rounded-lg px-2 py-2 outline-none bg-red-200 focus:bg-yellow-50 text-sm w-full">
                     </div>
                     <div class="px-5 py-2">
-                        <input type="date" id="tgl_lahir" name="tgl_lahir" value="{{ $tb_penduduk->tgl_lahir }}"
+                        <label for="nik" class="text-white">TanggalLahir</label>
+                        <input type="text" id="tgl_lahir" name="tgl_lahir" value="{{old('tgl_lahir',($tb_penduduk->tgl_lahir)) }}"
+                        placeholder="Masukkan Tanggal Lahir...."
+                        class="rounded-lg px-2 py-2 outline-none bg-red-200 focus:bg-yellow-50 text-sm w-full text-slate-500">
+
+                    {{-- <input type="date" id="tgl_lahir" name="tgl_lahir" value="{{old('tgl_lahir',$tb_penduduk->tgl_lahir) }}"
                             placeholder="Masukkan Tanggal Lahir...."
-                            class="rounded-lg px-2 py-2 outline-none bg-red-200 focus:bg-yellow-50 text-sm w-full text-slate-500">
+                            class="rounded-lg px-2 py-2 outline-none bg-red-200 focus:bg-yellow-50 text-sm w-full text-slate-500"> --}}
                     </div>
                     <div class="px-5 py-2">
+                        <label for="nik" class="text-white">Alamat</label>
                         <select name="alamat" id="alamat" class="bg-red-200 rounded-lg w-full text-slate-500">
                             <option class="bg-white border-spacing-0 rounded-lg w-full" value="">
                                 Pilih Alamat
@@ -88,6 +99,7 @@
                         </select>
                     </div>
                     <div class="px-5 py-2">
+                        <label for="nik" class="text-white">Agama</label>
                         <select name="agama" id="agama" class="bg-red-200 rounded-lg w-full text-slate-500">
                             <option class="bg-white border-spacing-0 rounded-lg w-full value=">
                                 Pilih agama
@@ -115,6 +127,7 @@
                         </select>
                     </div>
                     <div class="px-5 py-2">
+                        <label for="nik" class="text-white">Pekerjaan</label>
                         <select name="pekerjaan" id="pekerjaan" class="bg-red-200 rounded-lg w-full text-slate-500">
                             <option class="bg-white border-spacing-0 rounded-lg w-full" value="">
                                 Pilih pekeraan
@@ -158,6 +171,7 @@
                         </select>
                     </div>
                     <div class="px-5 py-2">
+                        <label for="nik" class="text-white">Pendidikan</label>
                         <select name="pendidikan" id="pendidikan"
                             class="bg-red-200 rounded-lg w-full text-slate-500">
                             <option class="bg-white border-spacing-0 rounded-lg w-full value=">
@@ -206,6 +220,7 @@
                         </select>
                     </div>
                     <div class="px-5 py-2">
+                        <label for="nik" class="text-white">Status Hubungan Dalam Keluarga</label>
                         <select name="shdk" id="shdk" class="bg-red-200 rounded-lg w-full text-slate-500">
                             <option class="bg-white border-spacing-0 rounded-lg w-full" value="">
                                 Pilih shdk
@@ -234,6 +249,7 @@
                         </select>
                     </div>
                     <div class="px-5 py-2">
+                        <label for="nik" class="text-white">Jenis Rumah</label>
                         <select name="jenis_rumah" id="jenis_rumah"
                             class="bg-red-200 rounded-lg w-full text-slate-800">
                             <option class="bg-white border-spacing-0 rounded-lg w-full value=">
@@ -265,8 +281,15 @@
                         </button>
                     </div>
                 </form>
+
+                {{-- <script>
+                    document.getElementById('tgl_lahir').addEventListener('input', function (e) {
+                      let newValue = e.target.value.split('-').reverse().join('/');
+                      e.target.value = newValue;
+                    });
+                  </script> --}}
             </div>
 
         </div>
     </div>
-</x-app-layout>
+</x-mysidebar>

@@ -1,17 +1,18 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+<x-mysidebar>
+    <x-slot name="kopsidebar">
+        <h2 class="font-semibold text-md">
             {{ __('Detail Data') }}
         </h2>
     </x-slot>
 
-    <div class="lg:py-6 py-2 rounded-lg">
+    <div class="lg:py-4 py-2 rounded-lg">
         <div class="w-full lg:w-1/2 mx-auto sm:px-1 lg:px-8">
             <div class="bg-white overflow-hidden shadow-lg shadow-indigo-200 sm:rounded-lg p-4">
                 <div
                     class="flex items-center p-1 lg:p-6 bg-indigo-600 rounded-lg border-b border-rose-600 shadow-xl text-slate-50 font-semibold uppercase">
                     Rincian Data Penduduk Personal
                 </div>
+
                 <div class=" items-center  mt-6 mb-4 text-sm lg:text-md">
                     <form action="/penduduk/{{ $tb_penduduk->id }}" method="Post">
                         <table class="lg:mx-4">
@@ -84,14 +85,54 @@
 
                         </table>
                     </form>
-                    <div class="mt-4 p-6 flex justify-end items-center rounded">
+
+
+                    <div class="flex justify-end items-center">
+                        <x-mymodal text="Hapus">
+
+                            <div class="text-slate-800 py-8">
+                                <x-logo-warning/>
+                                <div class="flex justify-center items-center">
+                                    <p class="text-center text-sm uppercase font-semibold">
+                                        konfirmasi Hapus Data
+                                    </p>
+
+                                </div>
+                                <p class="text-center">
+                                    apakah..? yakin akan menghapus
+                                </p>
+                                <p class="text-center uppercase">
+                                    nama : {{ $tb_penduduk->nama }}
+                                </p>
+                            </div>
+
+                            <form action="/penduduk/{{ $tb_penduduk->id }}" method="POST" class="w-full text-xs">
+                                @csrf
+                                @method('delete')
+                                <div class="flex  items-center justify-end ">
+                                    <div class="px-8">
+                                        <button
+                                        class="flex items-center bg-rose-700 px-4 py-2 rounded-md ring-2 ring-slate-50 hover:bg-red-200 hover:text-slate-900 text-slate-100">
+                                        <x-logo-hapus />
+                                        OK
+                                    </button>
+                                    </div>
+                                    <div class="px-4 py-2">
+                                        <a href="/penduduk"
+                                            class="inline-flex justify-center  px-4 py-2 ring-2 ring-slate-500 text-white bg-slate-800 rounded hover:bg-gray-600 shadow-lg shadow-slate-50">
+                                            Batal
+                                        </a>
+                                    </div>
+                                </div>
+                            </form>
+                         </x-mymodal>
                         <a href="/penduduk"
                             class="flex items-center justify-end rounded-lg bg-blue-700 hover:bg-blue-400 text-white px-4 py-2">
-                            <x-logo-kembali></x-logo-kembali>
+                            <x-logo-kembali/> Kambali
                         </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-mysidebar>

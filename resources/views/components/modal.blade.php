@@ -11,6 +11,7 @@
         <!-- A basic modal dialog with title, body and one button to close -->
         <div class="h-auto p-4 mx-auto text-left bg-white rounded shadow-xl md:max-w-xl md:p-6 lg:p-8 md:mx-0"
             @click.away="open = false">
+            @isset($title)
             <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                 <h3 class="text-lg font-medium leading-6 text-gray-900">
                     {{ $titel }}
@@ -22,6 +23,7 @@
                         </p>
                     </div>
             </div>
+            @endisset
 
             <!-- One big close button.  --->
             <div class="mt-5 sm:mt-6">

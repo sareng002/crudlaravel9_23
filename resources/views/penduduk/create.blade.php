@@ -1,8 +1,8 @@
-<x-app-layout>
-    <div class="">
-        <x-slot name="header">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Penduduk') }}
+<x-mysidebar>
+
+        <x-slot name="kopsidebar">
+            <h2 class="font-semibold text-md">
+                {{ __('input Data Penduduk Data Penduduk') }}
             </h2>
         </x-slot>
 
@@ -232,5 +232,5 @@
 
             </div>
         </div>
-    </div>
-</x-app-layout>
+
+</x-mysidebar>

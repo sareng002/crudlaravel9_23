@@ -1,7 +1,9 @@
 <x-guest-layout>
+
     <x-nav>
 
     </x-nav>
+
     {{-- conten landing page --}}
     <div class=" bg-slate-300">
         <div
@@ -20,4 +22,5 @@
 
         </div>
     </div>
+
 </x-guest-layout>
